@@ -3,41 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bogføringsassistent</title>
+    <title>KasseKlar</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <header>
         <button id="menu-btn">&#9776;</button>
-        <h1>Bogføringsassistent</h1>
+        <h1>KasseKlar</h1>
     </header>
 
     <nav id="sidenav">
         <a href="#" id="close-btn">&times;</a>
         <a href="#">Dashboard</a>
-        <a href="#">Transaktioner</a>
-        <a href="#">Rapporter</a>
-        <a href="#">Indstillinger</a>
+        <a href="#Transaktioner">Transaktioner</a>
+        <a href="#Rapporter">Rapporter</a>
+        <a href="#Indstillinger">Indstillinger</a>
     </nav>
 
     <main>
-        <section id="transaction-form-section">
-            <h2>Tilføj ny transaktion</h2>
-            <form id="transaction-form">
-                <input type="date" id="date" required>
-                <input type="text" id="description" placeholder="Beskrivelse" required>
-                <input type="number" id="amount" placeholder="Beløb" required>
-                <select id="type">
-                    <option value="income">Indtægt</option>
-                    <option value="expense">Udgift</option>
-                </select>
-                <button type="submit">Tilføj</button>
-            </form>
+        <section id="transactions-view">
+            <div id="transaction-form-section">
+                <h2>Tilføj ny transaktion</h2>
+                <form id="transaction-form">
+                    <input type="number" id="amount" placeholder="Beløb" step="0.01" required>
+                    <input type="text" id="description" placeholder="Beskrivelse" required>
+                    <input type="date" id="date" required>
+                    <select id="account" required>
+                        <option value="" disabled selected>Vælg konto</option>
+                    </select>
+                    <button type="submit">Tilføj</button>
+                </form>
+            </div>
+            <div id="transaction-list-section">
+                <h2>Transaktioner</h2>
+                <ul id="transaction-list"></ul>
+            </div>
         </section>
-        <section id="transaction-list-section">
-            <h2>Transaktioner</h2>
-            <ul id="transaction-list"></ul>
+
+        <section id="reports-view" style="display: none;">
+            <h2>Rapporter</h2>
+            <div id="net-balance-section">
+                <h3>Nettobalance</h3>
+                <p><span id="net-balance">0.00</span> DKK</p>
+            </div>
+            <div id="ledger-section">
+                <h3>Hovedbog</h3>
+                <button id="generate-ledger-btn">Vis Hovedbog</button>
+                <div id="ledger-container"></div>
+            </div>
+        </section>
+
+        <section id="settings-view" style="display: none;">
+            <h2>Indstillinger</h2>
+            <div id="data-management-section">
+                <h3>Datastyring</h3>
+                <button id="export-data-btn">Eksporter Alle Data (JSON)</button>
+            </div>
+            <div id="theme-section">
+                <h3>Tema</h3>
+                <button id="theme-toggle-btn">Skift til Mørk Tilstand</button>
+            </div>
         </section>
     </main>
     <script src="app.js"></script>
