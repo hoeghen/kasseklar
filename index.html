@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogføringsassistent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <button id="menu-btn">&#9776;</button>
+        <h1>Bogføringsassistent</h1>
+    </header>
+
+    <nav id="sidenav">
+        <a href="#" id="close-btn">&times;</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Transaktioner</a>
+        <a href="#">Rapporter</a>
+        <a href="#">Indstillinger</a>
+    </nav>
+
+    <main>
+        <section id="transaction-form-section">
+            <h2>Tilføj ny transaktion</h2>
+            <form id="transaction-form">
+                <input type="date" id="date" required>
+                <input type="text" id="description" placeholder="Beskrivelse" required>
+                <input type="number" id="amount" placeholder="Beløb" required>
+                <select id="type">
+                    <option value="income">Indtægt</option>
+                    <option value="expense">Udgift</option>
+                </select>
+                <button type="submit">Tilføj</button>
+            </form>
+        </section>
+        <section id="transaction-list-section">
+            <h2>Transaktioner</h2>
+            <ul id="transaction-list"></ul>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
