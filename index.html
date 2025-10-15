@@ -11,6 +11,7 @@
     <header>
         <button id="menu-btn">&#9776;</button>
         <h1>KasseKlar</h1>
+        <span id="accounting-year-display"></span>
     </header>
 
     <nav id="sidenav">
@@ -22,13 +23,23 @@
     </nav>
 
     <main>
-        <section id="transactions-view">
-            <div id="transaction-form-section">
-                <h2>Tilføj ny transaktion</h2>
+        <section id="setup-view" style="display: none;">
+            <h2>Velkommen til KasseKlar</h2>
+            <p>Vælg venligst dit regnskabsår for at fortsætte.</p>
+            <form id="setup-form">
+                <input type="number" id="accounting-year-input" placeholder="f.eks. 2024" required>
+                <button type="submit">Start</button>
+            </form>
+        </section>
+
+        <div id="app-content" style="display: none;">
+            <section id="transactions-view">
+                <div id="transaction-form-section">
+                    <h2>Tilføj ny transaktion</h2>
                 <form id="transaction-form">
                     <input type="number" id="amount" placeholder="Beløb" step="0.01" required>
                     <input type="text" id="description" placeholder="Beskrivelse" required>
-                    <input type="date" id="date" required>
+                    <div id="date-picker-trigger" class="date-picker-trigger">Vælg dato</div>
                     <select id="account" required>
                         <option value="" disabled selected>Vælg konto</option>
                     </select>
@@ -65,7 +76,26 @@
                 <button id="theme-toggle-btn">Skift til Mørk Tilstand</button>
             </div>
         </section>
+        </div> <!-- Closing the app-content div -->
     </main>
-    <script src="app.js"></script>
+    <script src="js/main.js" type="module"></script>
+
+    <!-- Date Picker Modal -->
+    <div id="date-picker-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="date-picker-container">
+                <div class="date-picker-column" id="day-column">
+                    <div class="date-picker-header">DAY</div>
+                </div>
+                <div class="date-picker-column" id="month-column">
+                    <div class="date-picker-header">MONTH</div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="date-picker-cancel">Annuller</button>
+                <button id="date-picker-ok">OK</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

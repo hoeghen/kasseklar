@@ -5,8 +5,18 @@ self.addEventListener('install', event => {
                 '/',
                 '/index.html',
                 '/styles.css',
-                '/app.js',
-                '/manifest.json'
+                '/manifest.json',
+                '/js/main.js',
+                '/js/config.js',
+                '/js/storage.js',
+                '/js/ui.js',
+                '/js/pages/setup.js',
+                '/js/pages/transactions.js',
+                '/js/pages/reports.js',
+                '/js/pages/settings.js',
+                '/js/components/header.js',
+                '/js/components/datePicker.js',
+                '/js/state/year.js'
             ]);
         })
     );
