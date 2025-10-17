@@ -18,3 +18,5 @@ export const YearProvider = ({ children }) => {
         </YearContext.Provider>
     );
 };
+
+export const useYear = () => useContext(YearContext);
